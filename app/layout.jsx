@@ -1,6 +1,7 @@
 import "@/assets/styles/globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import AuthProvider from "@/components/AuthProvider";
 export const metadata = {
   title: "Property Pulse",
   keywords: "rental, property, real estate",
@@ -9,13 +10,15 @@ export const metadata = {
 };
 const MainLayout = ({ children }) => {
   return (
-    <html>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <AuthProvider>
+      <html>
+        <body>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </AuthProvider>
   );
 };
 export default MainLayout;
