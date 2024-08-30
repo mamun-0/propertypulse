@@ -9,9 +9,9 @@ const InfoBoxes = () => {
               title={"For Renters"}
               background={"bg-gray-100"}
               buttonInfo={{
-                name: "Browse Properties",
+                text: "Browse Properties",
                 path: "/properties",
-                background: "bg-black",
+                backgroundColor: "bg-black",
               }}
             >
               Find your dream rental property. Bookmark properties and contact
