@@ -20,6 +20,17 @@ const Navbar = () => {
       setProviders(res);
     };
     setAuthProvider();
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -36,9 +47,6 @@ const Navbar = () => {
               aria-expanded="false"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
-              {window.addEventListener("resize", () => {
-                if (window.innerWidth > 768) setIsMobileMenuOpen(false);
-              })}
               <span className="absolute -inset-0.5"></span>
               <span className="sr-only">Open main menu</span>
               <svg
