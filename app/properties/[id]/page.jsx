@@ -5,9 +5,11 @@ import Property from "@/models/Property";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import PropertyImages from "@/components/PropertyImages";
+import convertToSerializableObject from "@/utils/convertToSerializableObject";
 const PropertyDetailsPage = async ({ params }) => {
   await connectDB();
-  const property = await Property.findById(params.id).lean();
+  const findProperty = await Property.findById(params.id).lean();
+  const property = convertToSerializableObject(findProperty);
   return (
     <>
       <PropertyDetailsImage image={property.images[0]} />
