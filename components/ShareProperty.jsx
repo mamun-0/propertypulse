@@ -1,10 +1,31 @@
-import { FaShare } from "react-icons/fa";
-const ShareProperty = () => {
+"use client";
+import { usePathname } from "next/navigation";
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+} from "react-share";
+function ShareProperty({ property }) {
+  const pathName = usePathname();
+  const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}${pathName}`;
   return (
-    <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center">
-      <FaShare className="mr-1" /> Share Property
-    </button>
+    <>
+      <h2 className="text-center font-semibold">Share on social media</h2>
+      <div className="flex justify-center gap-3">
+        <TwitterShareButton url={shareUrl} title={property.name}>
+          <TwitterIcon size={32} round />
+        </TwitterShareButton>
+        <FacebookShareButton
+          quote={property.name}
+          hashtag="#property"
+          url={shareUrl}
+        >
+          <FacebookIcon size={32} round />
+        </FacebookShareButton>
+      </div>
+    </>
   );
-};
+}
 
 export default ShareProperty;

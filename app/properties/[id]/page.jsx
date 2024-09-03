@@ -32,7 +32,7 @@ const PropertyDetailsPage = async ({ params }) => {
             <PropertyDetails property={property} />
             <aside className="space-y-4">
               <BookmarkButton property={property} />
-              <ShareProperty />
+              <ShareProperty property={property} />
               <PropertyContact />
             </aside>
           </div>
