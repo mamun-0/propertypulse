@@ -15,7 +15,7 @@ const PropertyDetailsPage = async ({ params }) => {
   const property = convertToSerializableObject(findProperty);
   return (
     <>
-      <PropertyDetailsImage image={property.images[0]} />
+      <PropertyDetailsImage image={property.images} />
       <section>
         <div className="container m-auto py-6 px-6">
           <Link
