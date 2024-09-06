@@ -3,13 +3,17 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import markMessageAsRead from "@/app/actions/markMessageAsRead";
 import deleteMessage from "@/app/actions/deleteMessage";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const MessageCard = ({ message }) => {
   const [isRead, setIsRead] = useState(message.read);
-
+  const { setUnreadMessages } = useGlobalContext();
   const handleReadClick = async () => {
     const read = await markMessageAsRead(message._id);
     setIsRead(read);
+    read
+      ? setUnreadMessages((prev) => --prev)
+      : setUnreadMessages((prev) => ++prev);
     toast.success(`Marked as ${read ? "read" : "new"}`);
   };
   const handleDeleteClick = async () => {
@@ -18,6 +22,7 @@ const MessageCard = ({ message }) => {
     );
     if (deleteConfirmation) {
       await deleteMessage(message._id, message.recipient);
+      setUnreadMessages((prev) => --prev);
       toast.success("Message deleted");
     }
   };
