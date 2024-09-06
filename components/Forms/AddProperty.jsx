@@ -1,5 +1,6 @@
+"use client";
 import addProperty from "@/app/actions/addProperty";
-
+import { useFormStatus } from "react-dom";
 const AddProperty = () => {
   return (
     <form action={addProperty}>
@@ -393,14 +394,24 @@ const AddProperty = () => {
       </div>
 
       <div>
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Add Property
-        </button>
+        <AddPropertyButton />
       </div>
     </form>
   );
 };
 export default AddProperty;
+
+function AddPropertyButton() {
+  const { pending } = useFormStatus();
+  return (
+    <button
+      className={`hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline flex items-center justify-center ${
+        pending ? "cursor-not-allowed bg-blue-200" : "bg-blue-500"
+      }`}
+      type="submit"
+      disabled={pending}
+    >
+      {pending ? "Adding..." : "Add Property"}
+    </button>
+  );
+}
