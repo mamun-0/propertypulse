@@ -5,7 +5,7 @@ import AuthProvider from "@/components/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalProvider } from "@/context/GlobalContext";
-import 'photoswipe/dist/photoswipe.css'
+import "photoswipe/dist/photoswipe.css";
 export const metadata = {
   title: "Property Pulse",
   keywords: "rental, property, real estate",
@@ -17,7 +17,7 @@ const MainLayout = ({ children }) => {
     <AuthProvider>
       <GlobalProvider>
         <html>
-          <body>
+          <body className="min-h-screen flex flex-col">
             <Navbar />
             <main>{children}</main>
             <Footer />
