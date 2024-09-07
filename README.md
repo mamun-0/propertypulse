@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Property Pulse
 
-## Getting Started
+## About
 
-First, run the development server:
+Property Pulse is a dynamic online platform designed to connect property owners with potential renters. It allows owners to list their properties for rent on a nightly, weekly, or monthly basis, similar to the Airbnb model. Users can communicate directly with property owners through the website to inquire or arrange rentals. The website integrates Mapbox to provide precise location mapping, enhancing user experience by allowing renters to easily find properties in their desired locations. This system not only simplifies the rental process but also supports a transparent and direct communication channel between owners and renters.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project running procedures
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Copy the repo link `https://github.com/mamun-0/propertypulse.git`
+2. Open terminal and type `npm install <paste-repo-link>`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Environmental Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Keys                             | Values                                                         |
+| -------------------------------- | -------------------------------------------------------------- |
+| MONGODB_URI                      | Find your mongodb local or atlas(online)                       |
+| NEXT_PUBLIC_DOMAIN               | After deployment domain link or `http://localhost:3000`        |
+| NEXT_PUBLIC_API_DOMAIN           | After deployment domain link or `http://localhost:3000/api`    |
+| GOOGLE_CLIENT_ID                 | Find google client id from google auth 2.0                     |
+| GOOGLE_CLIENT_SECRET             | Same as google client id                                       |
+| NEXTAUTH_URL                     | same as `NEXT_PUBLIC_DOMAIN`                                   |
+| NEXTAUTH_URL_INTERNAL            | same as `NEXT_PUBLIC_DOMAIN`                                   |
+| NEXTAUTH_SECRET                  | random string as your wish like `faskljf787874kjaswkl+*$*7gda` |
+| CLOUDINARY_CLOUD_NAME            | Find cloudinary website                                        |
+| CLOUDINARY_API_KEY               | Find cloudinary website                                        |
+| CLOUDINARY_API_SECRET            | Find cloudinary website                                        |
+| NEXT_PUBLIC_GOOGLE_GEOCODING_API | Find this api after enabling geocoding in google               |
+| NEXT_PUBLIC_MAPBOX_API           | Find from mapbox website                                       |
 
-## Learn More
+After setting all of these credientials perfectly then open terminal in your cloned project root folder and type `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![homepage](https://i.ibb.co.com/vjLb5KT/property-pulse-home-page.png)
